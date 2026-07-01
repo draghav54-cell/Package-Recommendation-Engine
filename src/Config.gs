@@ -1,23 +1,17 @@
 /**
  * ==========================================================
- * Package Recommendation Engine
+ * Config.gs
  * ----------------------------------------------------------
- * File: Config.gs
- * Version: 3.0.0
- *
+ * Package Recommendation Engine
  * Central configuration file.
- * This file contains NO business logic.
  * ==========================================================
  */
 
 const CONFIG = Object.freeze({
 
   APP: {
-
     NAME: "Package Recommendation Engine",
-
-    VERSION: "3.0.0"
-
+    VERSION: "4.0.0"
   },
 
   SHEETS: {
@@ -36,88 +30,89 @@ const CONFIG = Object.freeze({
 
   },
 
-  COLUMNS: {
+  PACKAGE_MASTER: {
 
-    TEST_MASTER: {
+    PACKAGE_ID: "Package_ID",
 
-      TEST_NAME: "Test_Name"
+    PACKAGE_NAME: "Package_Name",
 
-    },
+    VENDOR: "Vendor",
 
-    PACKAGE_MASTER: {
+    MRP: "MRP",
 
-      PACKAGE_ID: "Package_ID",
-
-      PACKAGE_NAME: "Package_Name",
-
-      VENDOR: "Vendor",
-
-      MRP: "MRP",
-
-      DOCTOR_RATE: "Doctor_Rate"
-
-    },
-
-    PACKAGE_TESTS: {
-
-      PACKAGE_NAME: "Package_Name",
-
-      TEST_NAME: "Test_Name"
-
-    },
-
-    PRESCRIPTION: {
-
-      SELECTED_TESTS: "Selected Tests"
-
-    }
+    DOCTOR_RATE: "Doctor_Rate"
 
   },
 
-  RECOMMENDATION: {
+  PACKAGE_TESTS: {
 
-    COVERAGE_OPTION: "A",
+    PACKAGE_NAME: "Package_Name",
 
-    DECIMAL_PLACES: 2,
+    TEST_NAME: "Test_Name"
 
-    INCLUDE_ZERO_MATCH: false
+  },
+
+  TEST_MASTER: {
+
+    TEST_NAME: "Test_Name"
+
+  },
+
+  PRESCRIPTION: {
+
+    COLUMN: 1,
+
+    START_ROW: 2
 
   },
 
   OUTPUT: {
 
-    FREEZE_HEADER: true,
+    START_ROW: 2,
 
-    AUTO_RESIZE_COLUMNS: true,
+    HEADERS: [
 
-    WRAP_TEXT: true
+      "Rank",
+
+      "Package Name",
+
+      "Vendor",
+
+      "Matched Tests",
+
+      "Missing Tests",
+
+      "Extra Tests",
+
+      "Coverage %",
+
+      "Doctor Rate",
+
+      "MRP"
+
+    ]
 
   },
 
-  SORT: {
+  SETTINGS: {
 
-    MATCHED_DESC: true,
+    DECIMAL_PLACES: 2,
 
-    COVERAGE_DESC: true,
+    INCLUDE_ZERO_MATCH: false,
 
-    EXTRA_ASC: true,
-
-    DOCTOR_RATE_ASC: true,
-
-    PACKAGE_NAME_ASC: true
+    IGNORE_CASE: true
 
   },
 
   MESSAGE: {
 
-    NO_TEST_SELECTED:
-      "Please select at least one test.",
+    SUCCESS: "Package recommendation completed successfully.",
 
-    NO_PACKAGE_FOUND:
-      "No matching package found.",
+    NO_TEST_SELECTED: "Please select at least one test in the Prescription sheet.",
 
-    SUCCESS:
-      "Package recommendation completed successfully."
+    NO_PACKAGE_FOUND: "No suitable package found.",
+
+    INVALID_STRUCTURE: "Spreadsheet structure is invalid."
 
   }
 
